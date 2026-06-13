@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: ollama-qwen
+    runtime: docker
+    plan: free
