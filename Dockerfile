@@ -1,10 +1,18 @@
 FROM ollama/ollama:latest
 
-ENV OLLAMA_HOST=0.0.0.0:11434
+RUN apt-get update && \
+    apt-get install -y curl nodejs npm
 
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+WORKDIR /app
 
-EXPOSE 11434
+COPY package.json .
+RUN npm install
 
-CMD ["/start.sh"]
+COPY proxy.js .
+COPY start.sh .
+
+RUN chmod +x start.sh
+
+ENTRYPOINT []
+
+CMD ["/app/start.sh"]
