@@ -1,0 +1,7 @@
+{
+  "name": "ollama-render",
+  "type": "module",
+  "dependencies": {
+    "http-proxy": "^1.18.1"
+  }
+}
